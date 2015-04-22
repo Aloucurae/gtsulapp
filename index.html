@@ -1,0 +1,33 @@
+<html ng-app="countryApp">
+  <head>
+    <meta charset="utf-8">
+    <title>GTsul app</title>
+    <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style_index.css  ">
+    <script>
+      var countryApp = angular.module('countryApp', []);
+      countryApp.controller('CountryCtrl', ['$scope', '$http', function (scope, http){
+        http.get('http://neverold.esy.es/dados.php').success(function(data) {
+          scope.countries = data;
+        });
+      }]);
+    </script>
+  </head>
+  <body ng-controller="CountryCtrl">    
+     <nav id="esp">
+      <nav  id="res" ng-repeat="country in countries | filter:query">
+        <td><div ><img id="lugar" name="lugar" srcset={{country.foto_lugar}} ></div></td>
+      </nav>
+      </nav>
+    <header class="topnavContainer topnavContainerScroll" >
+      <input id="pesquisa" ng-model="query" type="text"/>   
+    </header> 
+
+     <div id="op">  
+      <div id="m"></div> 
+      <div id="m"></div> 
+      <div id="m"></div>      
+    </div>  
+
+  </body>
+</html>
