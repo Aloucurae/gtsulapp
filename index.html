@@ -4,6 +4,7 @@
     <title>GTsul app</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"</script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.min.js"></script>
+    <script src="js/script_funcoes.js"></script>
       
     <script src="js/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style_index.css  ">
@@ -21,7 +22,7 @@
   <body ng-controller="CountryCtrl">    
      <nav id="esp">
       <nav  id="res" ng-repeat="country in countries | filter:query">
-        <td><div ><img id="lugar" name="lugar" srcset={{country.foto_lugar}} ></div></td>
+        <div id={{country.0}} onclick="ampliame(3)" ><img id="lugar" name="lugar" srcset={{country.foto_lugar}} ></div>
       </nav>
       </nav>
     <header class="topnavContainer topnavContainerScroll" >
