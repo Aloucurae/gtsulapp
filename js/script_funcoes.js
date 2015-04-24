@@ -17,13 +17,20 @@ function ampliame(id) {
 
 function voltanormal(){
 
-	 var divs = document.getElementsByClassName('normal'); 	 
-
-	 for(var i=0;i<=divs.length;i++) { 
+	 var divs = $('.normal'); 	 
+	 	//console.log($('.normal'));
+	 // for(var i=0;i<=divs.length;i++) { 
 	
-	 		divs[i].style.display = "block"; 	 		 
+	 // 		//divs[i].style.display = "block"; 	 
+	 // 		console.log($(this))		 
 
-	 } 	  
+	 // } 	  
+	 $.each(divs,function(x,y){
+	 	// console.log(x);
+	 	$(this).css('display','block');
+	 	 console.log($(this));
+
+	 });
 
 }
 

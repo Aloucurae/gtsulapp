@@ -13,9 +13,9 @@
 
     var countryApp = angular.module('countryApp', []);
 
-      countryApp.controller('CountryCtrl', ['$scope', '$http', function (scope, http){
-        http.get('http://alexdb.ddns.net/app/dados.php').success(function(data) {
-          scope.countries = data;
+      countryApp.controller('CountryCtrl', ['$scope', '$http', function ($scope, $http){
+        $http.get('http://alexdb.ddns.net/app/dados.php').success(function(data) {
+          $scope.countries = data;
         });
       }]);
 
