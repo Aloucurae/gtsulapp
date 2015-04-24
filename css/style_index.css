@@ -7,6 +7,16 @@ header{
 	background-color: black;
 	width: 100%;
 }
+.normal{
+	width: 100%;
+}
+.esconde{
+	width: 100%;
+	display:none; 
+}
+.amplia{
+	width: 200%;
+}
 #esp{
 	position: absolute;
 	margin-top: 130px;
