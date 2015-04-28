@@ -17,35 +17,30 @@ function ampliame(id) {
 
 function voltanormal(){
 
-	 var divs = $('.normal'); 	 
-	 	//console.log($('.normal'));
-	 // for(var i=0;i<=divs.length;i++) { 
-	
-	 // 		//divs[i].style.display = "block"; 	 
-	 // 		console.log($(this))		 
+	var divs = $('.normal'); 	 
+	 	  
+	$.each(divs,function(x,y){
+	 
+		$(this).css('display','block');
 
-	 // } 	  
-	 $.each(divs,function(x,y){
-	 	// console.log(x);
-	 	$(this).css('display','block');
-	 	 console.log($(this));
-
-	 });
+	});
 
 }
 
 function voltanormal1(){
 
-	document.getElementById(idcon).style.display = "none";
-	var ampliado = document.getElementsByClassName("amplia"); 
+	$('idcon').css('display','none');
 
-	 for(var i=0;i<=ampliado.length;i++) { 
-	 	
-	 		ampliado[i].className = "normal"; 	
-	 		voltanormal();
-	 		
+	var ampliado = $('.amplia'); 
 
-	 } 	 
+	$.each(divs,function(x,y){
+
+		ampliado[i].className = "normal";
+
+	});
+
+	voltanormal();
+	 			 
 }
 
 
