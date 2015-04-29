@@ -25,23 +25,24 @@
   <body ng-controller="CountryCtrl">    
      <nav id="esp">
       <nav  id="res" ng-repeat="country in countries | filter:query">
-        <li>
-          <div class="normal" id='{{country.codigo_lugar}}' onclick='ampliame(this.id)' ><img id="lugar" name="lugar" srcset='{{country.foto_lugar}}'>
-        </li>
+       
+          <div class="normal" id='{{country.codigo_lugar}}' onclick='ampliame(this.id)' >
+            <img id="lugar" name="lugar" srcset='{{country.foto_lugar}}'></div>
+          
          <div  class="conteudo" id='{{country.0}}' >
-        <li>
+         <li>
           {{country.nome_lugar}}
-        </li>
-        <li>
-          {{country.email_lugar}}
+          </li>
           <li>
-          <a href="tel:{{country.fone_lugar}}">{{country.fone_lugar}}</a>
-        </li>
-        </li>
+            {{country.email_lugar}}
+          </li>
+          <li>
+            <a href="tel:{{country.fone_lugar}}">{{country.fone_lugar}}</a>
+          </li>
         </div>
 
       </nav>
-      </nav>
+    </nav>
     <header class="topnavContainer topnavContainerScroll" >
       <input id="pesquisa" ng-model="query" type="text"/>   
     </header> 

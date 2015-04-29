@@ -6,29 +6,25 @@ function ampliame(id) {
 	idcon = 'cont_'+id;
 	idconte = idcon;
 	document.getElementById(idcon).style.display = "block"; 
+ 
+	 var divs = $('.normal'); 	 
+  
+	 $.each(divs,function(x,y){
+	 	
+	 	$(this).css('display','none');
+	 	 
 
-	 var divs =document.getElementsByClassName("normal"); 
-	 for(var i=0;i<=divs.length;i++) { 
-	
-	 		divs[i].style.display = "none"; 	
-
-	 } 
+	 });
 }
 
 function voltanormal(){
 
 	 var divs = $('.normal'); 	 
-	 	//console.log($('.normal'));
-	 // for(var i=0;i<=divs.length;i++) { 
-	
-	 // 		//divs[i].style.display = "block"; 	 
-	 // 		console.log($(this))		 
-
-	 // } 	  
+  
 	 $.each(divs,function(x,y){
-	 	// console.log(x);
+	 	
 	 	$(this).css('display','block');
-	 	 console.log($(this));
+	 	 
 
 	 });
 
@@ -37,13 +33,13 @@ function voltanormal(){
 function voltanormal1(){
 
 	document.getElementById(idcon).style.display = "none";
-	var ampliado = document.getElementsByClassName("amplia"); 
+	
+	var ampliado = $('.amplia'); 
 
 	 for(var i=0;i<=ampliado.length;i++) { 
 	 	
 	 		ampliado[i].className = "normal"; 	
-	 		voltanormal();
-	 		
+	 		voltanormal();	 		
 
 	 } 	 
 }
