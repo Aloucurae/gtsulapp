@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>GTsul app</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"</script>
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.min.js"></script>
     <script src="js/script_funcoes.js"></script>
       
@@ -14,7 +14,7 @@
     var countryApp = angular.module('countryApp', []);
 
       countryApp.controller('CountryCtrl', ['$scope', '$http', function ($scope, $http){
-        $http.get('http://alexdb.ddns.net/app/dados.php').success(function(data) {
+        $http.get('http://neverold.esy.es/dados.php').success(function(data) {
           $scope.countries = data;
         });
       }]);

@@ -8,7 +8,7 @@
 			// route for the home page
 			.when('/', {
 				templateUrl : 'pages/home.html',
-				controller  : 'mainController'
+				controller  : 'CountryCtrl'
 			})
 
 			// route for the about page
@@ -23,6 +23,14 @@
 				controller  : 'contactController'
 			});
 	});
+
+	 //var countryApp = angular.module('countryApp', []);
+
+      scotchApp.controller('CountryCtrl', ['$scope', '$http', function ($scope, $http){
+        $http.get('http://alexdb.ddns.net/app/dados.php').success(function(data) {
+          $scope.countries = data;
+        });
+      }]);
 
 	// create the controller and inject Angular's $scope
 	scotchApp.controller('mainController', function($scope) {

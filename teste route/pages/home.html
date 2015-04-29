@@ -1,5 +1,10 @@
 <div class="jumbotron text-center">
-	<h1>Home Page</h1>
-	
-	<p>{{ message }}</p>
+	   <nav  id="res" ng-repeat="country in countries | filter:query">
+          <li>
+          {{country.nome_lugar}}
+          </li>
+          <li>
+            {{country.email_lugar}}
+          </li>
+          </nav>
 </div>
