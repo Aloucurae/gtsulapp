@@ -58,16 +58,16 @@
                
 
                 if (document.getElementById('valor').value != '') {
-
-                    var valors = [ document.getElementById('tempos').value,
-                     document.getElementById('valor').value , document.getElementById('grupo').value];
-                    console.log(document.getElementById('tempos').value);
-                    console.log(document.getElementById('valor').value);
-                    console.log(valors);
-                    window.localStorage.setItem(i++, valors);
+                    var stor = [window.localStorage.getItem('contas')];                
+                
+                    var valors = new Array(document.getElementById('tempos').value,
+                    document.getElementById('valor').value , document.getElementById('grupo').value);
+                    console.log(valors);  
+                    stor.push(valors);       
+                               
+                    window.localStorage.setItem('contas', sotr);
                     document.getElementById('valor').value = '';
-                    var storager = window.localStorage;
-                    storage.innerHTML += storager.getItem(i);
+                     
                     alert('Cadastrado');
                 };
 
