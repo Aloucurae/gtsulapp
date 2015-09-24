@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <script type="text/javascript" src="js/jquerry.js" ></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+        <title>Comtas E</title>
+        <script language="JavaScript">
+
+            function diaSemana(dias){
+                var res ="";
+                switch (dias){
+                    case 0 :
+                        res ="Domingo";
+                        break;
+                    case 1 :
+                        res ="Segunda";
+                        break;
+                    case 2 :
+                        res ="Terça";
+                        break;
+                    case 3 :
+                        res ="Quarta";
+                        break;
+                    case 4 :
+                        res ="Quinta";
+                        break;
+                    case 5 :
+                        res ="Sexta!!! porra";
+                        break;
+                    case 6 :
+                        res ="Sabado";
+                        break;
+                }
+
+                return res;
+            }
+            function DataHora(){
+                var data = new Date();
+                var mes = 1;
+                mes += data.getMonth();
+                tempo.innerHTML = data.toLocaleString();
+                document.getElementById('tempos').value = data.toLocaleString();
+
+               
+                dia.innerHTML = diaSemana(data.getDay()); 
+                setTimeout("DataHora()",1000);
+            }
+
+            function cadastra(){
+               
+
+                if (document.getElementById('valor').value != '') {
+
+                    var valors = [ document.getElementById('tempos').value,
+                     document.getElementById('valor').value , document.getElementById('grupo').value];
+                    console.log(document.getElementById('tempos').value);
+                    console.log(document.getElementById('valor').value);
+                    console.log(valors);
+                    window.localStorage.setItem(document.getElementById('tempos').value, valors);
+                    document.getElementById('valor').value = '';
+                    
+                    alert('Cadastrado');
+                };
+
+            }
+
+        </script>
+    </head>
+    <body onLoad="DataHora()" class="alert-danger">
+    <div class="alert alert-success">
+      <h3 > <span  id="dia"></span></h3> 
+      <h3> <span name="tempo" id="tempo"></span></h3>     
+     <input type="hidden" name="tempos" id="tempos" / >   
+    </div> 
+    <div class="col-lg-12 alert-danger">
+    <form role="form" class="ng-pristine">
+        <div class="form-group"> 
+            <button type="reset" id="res" class="form-control">limpar</button> 
+        </div>
+
+        <div class="form-group">  
+            <label>Valor</label>
+            <input id="valor" type="number" class="form-control" pattern="(\d{3})([\.])(\d{2})">
+        </div> 
+        <div class="form-group">  
+            <label>Categoria</label>
+            <select class="form-control" id="grupo">
+                <option>Combustivel</option>
+                <option>Comida</option>
+                <option>Cedup</option>
+                <option>Outros</option>
+            </select>
+        </div>  
+        <div class="form-group">  
+            <input type="button" onclick="cadastra()" class="form-control" value="Cadastrar"/>
+        </div>
+    </form>
+    </div>
+ 
+    </body>
+</html>
