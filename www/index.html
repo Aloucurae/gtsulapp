@@ -9,6 +9,7 @@
         <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
         <title>Comtas E</title>
         <script language="JavaScript">
+            var i;
 
             function diaSemana(dias){
                 var res ="";
@@ -63,9 +64,10 @@
                     console.log(document.getElementById('tempos').value);
                     console.log(document.getElementById('valor').value);
                     console.log(valors);
-                    window.localStorage.setItem(document.getElementById('tempos').value, valors);
+                    window.localStorage.setItem(i++, valors);
                     document.getElementById('valor').value = '';
-
+                    var storager = window.localStorage;
+                    storage.innerHTML += storager.getItem(i);
                     alert('Cadastrado');
                 };
 
@@ -104,7 +106,9 @@
     </form>
     </div>
     <div class="col-lg-12 alert-danger">
-
+    <div id="storage">
+        
+    </div>
         
     </div> 
     </body>
