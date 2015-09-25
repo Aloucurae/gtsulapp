@@ -8,8 +8,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
         <title>Comtas E</title>
-        <script language="JavaScript">
-            var i;
+        <script language="JavaScript">                        
 
             function diaSemana(dias){
                 var res ="";
@@ -35,7 +34,7 @@
                     case 6 :
                         res ="Sabado";
                         break;
-                }
+                };
 
                 return res;
             }
@@ -47,25 +46,26 @@
                 var mes = 1;
                 mes += data.getMonth();
                 tempo.innerHTML = data.toLocaleString();
-                document.getElementById('tempos').value = data.toLocaleString();
-
-               
+                document.getElementById('tempos').value = data.toLocaleString();               
                 dia.innerHTML = diaSemana(data.getDay()); 
                 setTimeout("DataHora()",1000);
             }
 
-            function cadastra(){
-               
+            function removerItem(ids){
+                //window.localStorage.removeItem(ids);
+                alert('deletado'+ids.value);
+            }
 
-                if (document.getElementById('valor').value != '') {
-                    var stor = [window.localStorage.getItem('contas')];                
+            function cadastra(){               
+
+                if (document.getElementById('valor').value != '') {                               
                 
                     var valors = new Array(document.getElementById('tempos').value,
                     document.getElementById('valor').value , document.getElementById('grupo').value);
-                    console.log(valors);  
-                    stor.push(valors);       
+                    console.log(valors);                       
                                
-                    window.localStorage.setItem('contas', sotr);
+                    window.localStorage.setItem(document.getElementById('tempos').value, valors);
+
                     document.getElementById('valor').value = '';
                      
                     alert('Cadastrado');
@@ -96,7 +96,7 @@
             <select class="form-control" id="grupo">
                 <option>Combustivel</option>
                 <option>Comida</option>
-                <option>Cedup</option>
+                <option>Cartão / Credito</option>
                 <option>Outros</option>
             </select>
         </div>  
@@ -106,10 +106,72 @@
     </form>
     </div>
     <div class="col-lg-12 alert-danger">
-    <div id="storage">
-        
-    </div>
-        
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Valor</th>
+                        <th>Uso</th>
+                        <th>Del</th>
+                    </tr>
+                </thead>
+                <tbody id="storage">
+                    
+                </tbody>              
+            </table>            
+        </div>  
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Combustivel</th>
+                        <th>Comida</th>
+                        <th>Cartão</th>
+                        <th>Outros</th>
+                    </tr>
+                </thead>
+                <tbody id="totais">
+                    <tr>
+                        <td id="comb"></td>
+                        <td id="comi"></td>
+                        <td id="cart"></td>
+                        <td id="outr"></td>                        
+                    </tr>                    
+                </tbody>              
+            </table>            
+        </div>      
     </div> 
+    <script type="text/javascript">
+        var X = window.localStorage.length;
+            var arr = [];
+            var dias = [];
+            var add;
+
+            for (var i = 0; i < X; i++) {
+
+                var chave = window.localStorage.key(i);
+
+                arr = window.localStorage.getItem(chave);
+                arr = arr.split(",");
+
+                dias = arr[0].split(" ");
+
+                console.log(dias[0] +' - '+arr[1]+' - '+ arr[2]);
+                add = '<tr>';
+
+                add += '<td>'+dias[0]+'</td>';
+                add += '<td>'+arr[1]+'</td>';
+                add += '<td>'+arr[2]+'</td>';
+                add += '<td><button class="btn btn-lg btn-default" onclick=" removerItem(this)"><button></td>';
+
+                storage.innerHTML += add+'</tr>';
+
+                
+            };
+    </script>
+
+
+
     </body>
 </html>
