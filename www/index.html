@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome to Miles Datas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="css/application.css" type="text/css" media="screen" charset="utf-8">
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="navbar-inner">
+            <div class="banner centered">
+              <span class="brand"><i class="icon-road icon-white"></i> Miles Datas<a class="pull-right btn btn-small btn-info settings-btn" href=""><i class="icon-wrench icon-white"></i></a></span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid content">
+          <div id="step-one" class="step centered"></div>
+          <div id="step-api-key" class="step hide modal fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 id="myModalLabel">API Key Settings</h3>
+                <p>Please provide us with your correct API Key</p>
+            </div>
+            <div class="modal-body">
+              <form id="api-key-form">
+                <div class="control-group">
+                  <div class="controls">
+                    <input type="text" id="api-key-input" placeholder="API Key" class="input-block-level">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <button type="submit" class="btn btn-block">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="step-nav" class="step centered hide">
+            <h3 class="title">Title</h3>
+            <button type="button" class="btn btn-large btn-block step-nav-link" rel="step-two"><i class="icon-exclamation-sign"></i> Starting Data</button>
+            <button type="button" class="btn btn-large btn-block step-nav-link" rel="step-three"><i class="icon-exclamation-sign"></i> Stopping Data</button>
+            <button type="button" class="btn btn-large btn-primary btn-block step-nav-complete disabled" rel="step-two" disabled="disabled">Save</button>
+          </div>
+          <div id="step-two" class="step centered hide">
+            <h3 class="title">Starting Data</h3>
+            <form id="starting-form">
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="starting-location" placeholder="Starting Location" class="input-block-level">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="starting-odometer" placeholder="Odometer" class="input-block-level">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="reason" placeholder="Reason for Trip" class="input-block-level">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="button" class="btn btn-danger coordinates btn-block" rel="starting"><i class="icon-screenshot icon-white"></i> Coordinates: Off</button>
+                  <button type="submit" class="btn btn-block record">Record</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="step-three" class="step centered hide">
+            <h3 class="title">Stopping Data</h3>
+            <form id="stopping-form">
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="stopping-location" placeholder="Ending Location" class="input-block-level">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="stopping-odometer" placeholder="Odometer" class="input-block-level">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="button" class="btn btn-danger coordinates btn-block" rel="stopping"><i class="icon-screenshot icon-white"></i> Coordinates: Off</button>
+                  <button type="submit" class="btn btn-block record">Record</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/application.js"></script>
+    </body>
+</html>
