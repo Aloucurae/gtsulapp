@@ -14,6 +14,7 @@ myApp.controller('listCtrl', ['$scope', '$http', function ($scope, $http){
 	var dados = JSON.parse(window.localStorage.getItem('dados'));
 
 	var stat=1;
+	var urls='http://app.alexjonas.com.br/lista/app.php?stat=';
 
 	if (dados) {
 
@@ -27,11 +28,13 @@ myApp.controller('listCtrl', ['$scope', '$http', function ($scope, $http){
 	} 
 
  
-    $http.get('http://app.alexjonas.com.br/lista/app.php?stat='+stat)
+    $http.get(urls+stat)
 
     	.error(function(data, status) {
 			console.error('Erro ao conectar com o servidor',status);
-			alert('falha ao conectar com o servidor \nErro: '+status+'\nTente novamente mais tarde ou \nEnvie um print da tela para o desenvolvedor');
+			alert('falha ao conectar com o servidor \nErro: '+status+'\nTente novamente mais tarde ou \nEnvie um print da tela para o desenvolvedor\n'+urls);
+			alert('data');
+			alert('status');
 		})
 
 	    .success(function(data) {
