@@ -33,8 +33,8 @@ myApp.controller('listCtrl', ['$scope', '$http', function ($scope, $http){
     	.error(function(data, status) {
 			console.error('Erro ao conectar com o servidor',status);
 			alert('falha ao conectar com o servidor \nErro: '+status+'\nTente novamente mais tarde ou \nEnvie um print da tela para o desenvolvedor\n'+urls);
-			alert('data');
-			alert('status');
+			alert(data);
+			alert(status);
 		})
 
 	    .success(function(data) {
