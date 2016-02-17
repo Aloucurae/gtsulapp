@@ -1,0 +1,11 @@
+<widget id="com.indalista.hello" version="0.1.1">
+    <name>HelloWorld</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="alexj.desantanna@gmail.com" href="http://www.alexjonas.com.br">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
